@@ -9,7 +9,6 @@ import utils
 
 
 connection_uri = os.getenv('dburi')
-print('connection_uri', connection_uri)
 
 client = motor.motor_asyncio.AsyncIOMotorClient(connection_uri)
 
@@ -18,6 +17,7 @@ db = client['repldex']
 entries_coll = db['entries']
 sessions_coll = db['sessions']
 users_coll = db['users']
+translations_coll = db['translations']
 
 async def fix_entry(data):
 	if data is None: return
