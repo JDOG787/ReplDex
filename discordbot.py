@@ -24,11 +24,13 @@ async def start_bot():
 	print('starting bot pog')
 	await client.start(bot_token)
 
+prefix = config.get('prefix', '^')
+
 @client.event
 async def on_ready():
 	print('ready')
 	await client.change_presence(
-		activity=discord.Game(name='^help')
+		activity=discord.Game(name=prefix+'help')
 	)
 
 
@@ -36,7 +38,6 @@ def discord_id_to_user(user_id):
 	user = client.get_user(user_id)
 	return str(user)
 
-prefix = config.get('prefix', '^')
 
 betterbot = BetterBot(
 	prefix=prefix,
