@@ -123,6 +123,8 @@ function translate(){
 	<article class="content">
     {% if translated %}
       {{ article_text }}
+    {% elif subbed %}
+      {{ nohtml_content }}
     {% else %}
 		  {{ content|before_show_text|safe }}
     {% endif %}
